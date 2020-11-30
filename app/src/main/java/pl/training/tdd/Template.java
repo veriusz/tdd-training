@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class Template {
 
-    public static final Pattern EXPRESSION = Pattern.compile("\\$\\{\\w+}");
+    private static final Pattern EXPRESSION = Pattern.compile("\\$\\{\\w+}");
     private static final String INVALID_VALUE = "\\W+";
 
     private final String textWithExpressions;
@@ -15,17 +15,22 @@ public class Template {
     }
 
     public String evaluate(Map<String, String> valuesMap) {
-        if (getExpressionsCount() !=  valuesMap.size()) {
-            throw new IllegalArgumentException();
-        }
-        if (valuesMap.values().stream().anyMatch(value -> value.matches(INVALID_VALUE))) {
+        if (containsInvalidValues(valuesMap) || isComplete(valuesMap)) {
             throw new IllegalArgumentException();
         }
         return textWithExpressions;
     }
 
+    private boolean isComplete(Map<String, String> valuesMap) {
+        return getExpressionsCount() != valuesMap.size();
+    }
+
     private long getExpressionsCount() {
         return EXPRESSION.matcher(textWithExpressions).results().count();
+    }
+
+    private boolean containsInvalidValues(Map<String, String> valuesMap) {
+        return valuesMap.values().stream().anyMatch(value -> value.matches(INVALID_VALUE));
     }
 
 }
