@@ -36,7 +36,7 @@ public class TemplateTest {
     @Test
     void evaluation_of_template_with_non_alphanumeric_values_throw_an_exception() {
         var template = new Template("My name is ${firstName}");
-        var valuesMap = Map.of("firstName", "@");
+        var valuesMap = Map.of("firstName", "@aaa");
         assertThrows(IllegalArgumentException.class, () -> template.evaluate(valuesMap));
     }
 

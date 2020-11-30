@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class Template {
 
     private static final Pattern EXPRESSION = Pattern.compile("\\$\\{\\w+}");
-    private static final String INVALID_VALUE = "\\W+";
+    private static final String INVALID_VALUE = ".*\\W+.*";
     private static final String EXPRESSION_START = "\\$\\{";
     private static final String EXPRESSION_END = "}";
 
