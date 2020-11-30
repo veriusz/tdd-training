@@ -13,7 +13,7 @@ public class Template {
         this.textWithExpressions = testWithExpressions;
     }
 
-    public String evaluate(Map<Object, Object> valuesMap) {
+    public String evaluate(Map<String, String> valuesMap) {
         if (getExpressionsCount() !=  valuesMap.size()) {
             throw new IllegalArgumentException();
         }
