@@ -18,7 +18,8 @@ public class Template {
         if (containsInvalidValues(valuesMap) || isComplete(valuesMap)) {
             throw new IllegalArgumentException();
         }
-        return textWithExpressions;
+        return valuesMap.keySet().stream()
+                .reduce(textWithExpressions, (result, key) -> result.replaceAll(createExpression(key), valuesMap.get(key)));
     }
 
     private boolean isComplete(Map<String, String> valuesMap) {
@@ -31,6 +32,10 @@ public class Template {
 
     private boolean containsInvalidValues(Map<String, String> valuesMap) {
         return valuesMap.values().stream().anyMatch(value -> value.matches(INVALID_VALUE));
+    }
+
+    private String createExpression(String key) {
+        return "\\$\\{" + key + "}";
     }
 
 }
