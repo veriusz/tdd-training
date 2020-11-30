@@ -40,4 +40,12 @@ public class TemplateTest {
         assertThrows(IllegalArgumentException.class, () -> template.evaluate(valuesMap));
     }
 
+    @DisplayName("Given an template, when evaluating, then should return the text with substituted values")
+    @Test
+    void evaluation_of_template_returns_text_with_substituted_values() {
+        var template = new Template("My name is ${firstName} ${lastName}");
+        var valuesMap = Map.of("firstName", "Jan", "lastName", "Kowalski");
+        assertEquals("My name is Jan Kowalski", template.evaluate(valuesMap));
+    }
+
 }
