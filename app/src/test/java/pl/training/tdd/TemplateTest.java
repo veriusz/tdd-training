@@ -27,8 +27,7 @@ public class TemplateTest {
     @Test
     void evaluation_of_template_without_providing_all_values_throw_an_exception() {
         var template = new Template("My name is ${firstName}");
-        var valuesMap = emptyMap();
-        assertThrows(IllegalArgumentException.class, () -> template.evaluate(valuesMap));
+        assertThrows(IllegalArgumentException.class, () -> template.evaluate(emptyMap()));
     }
 
 }

@@ -5,6 +5,8 @@ import java.util.regex.Pattern;
 
 public class Template {
 
+    public static final Pattern EXPRESSION = Pattern.compile("\\$\\{\\w+}");
+
     private final String textWithExpressions;
 
     public Template(String testWithExpressions) {
@@ -12,10 +14,14 @@ public class Template {
     }
 
     public String evaluate(Map<Object, Object> valuesMap) {
-        if (Pattern.compile("\\$\\{\\w+}").matcher(textWithExpressions).results().count() !=  valuesMap.size()) {
+        if (getExpressionsCount() !=  valuesMap.size()) {
             throw new IllegalArgumentException();
         }
         return textWithExpressions;
+    }
+
+    private long getExpressionsCount() {
+        return EXPRESSION.matcher(textWithExpressions).results().count();
     }
 
 }
