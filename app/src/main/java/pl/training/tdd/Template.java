@@ -1,5 +1,7 @@
 package pl.training.tdd;
 
+import java.util.Map;
+
 public class Template {
 
     private final String textWithExpressions;
@@ -8,7 +10,7 @@ public class Template {
         this.textWithExpressions = testWithExpressions;
     }
 
-    public String evaluate() {
+    public String evaluate(Map<Object, Object> valuesMap) {
         return textWithExpressions;
     }
 
