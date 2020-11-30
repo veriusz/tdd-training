@@ -1,9 +1,15 @@
-1. Napisz klasę reprezentującą pieniądze
+1. Napisz program interpretujący proste wyrażenia w tekście
+Założenia:
+- Wyrażenia mają postać ${nazwa_zmiennej}
+- Jeśli wartość zmiennej nie została określona, ewaluacja powinna zostać przerwana
+- Podstawiane wartości mogą składać się wyłącznie ze znaków alafanumerycznych
+
+2. Napisz klasę reprezentującą pieniądze
 Założenia:
 - Pieniądze mogą występować w różnych walutach
 - Pieniądze w jenej walucie mogą być wymieniane / konwertowane do innej waluty po wskazanym kursie
 - Pieniądze można ze sobą porównywać, dodawać, odejmować
 
-2. Stwórz prosty slinik do wyszukiwania słów w dokumentach
+3. Stwórz prosty slinik do wyszukiwania słów w dokumentach
 Założenia:
 - Silnik powinien prezentować wyniki jako uporządkowana lista ilości wystąpień szukanego słowa w dokumentach
