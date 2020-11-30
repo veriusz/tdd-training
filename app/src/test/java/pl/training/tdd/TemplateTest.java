@@ -1,8 +1,9 @@
 package pl.training.tdd;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ApplicationTest {
 
@@ -10,7 +11,7 @@ public class ApplicationTest {
     @Test
     void evaluation_of_empty_template_returns_an_empty_string() {
         var template = new Template();
-        Assertions.assertEquals("", template.evaluate());
+        assertEquals("", template.evaluate());
     }
 
 }
