@@ -1,6 +1,7 @@
 package pl.training.tdd;
 
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class Template {
 
@@ -11,6 +12,9 @@ public class Template {
     }
 
     public String evaluate(Map<Object, Object> valuesMap) {
+        if (Pattern.compile("\\$\\{\\w+}").matcher(textWithExpressions).results().count() !=  valuesMap.size()) {
+            throw new IllegalArgumentException();
+        }
         return textWithExpressions;
     }
 
