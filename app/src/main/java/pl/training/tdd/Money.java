@@ -25,6 +25,6 @@ public class Money {
     }
 
     public void diff(BigDecimal bigDecimal) {
-
+        amount = amount.subtract(bigDecimal);
     }
 }
