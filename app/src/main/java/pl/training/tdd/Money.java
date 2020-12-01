@@ -34,4 +34,8 @@ public class Money {
     private boolean isSubtractGreaterThenZero(BigDecimal bigDecimal) {
         return BigDecimal.ZERO.compareTo(amount.subtract(bigDecimal)) > 0;
     }
+
+    public int compareAmount(Money m2) {
+        return 0;
+    }
 }

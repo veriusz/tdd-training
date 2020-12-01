@@ -44,4 +44,16 @@ public class MoneyTest {
         assertThrows(IllegalArgumentException.class, () -> money.diff(new BigDecimal("9")));
     }
 
+    @Test
+    void given_money_when_compare_then_return_correct_value() {
+        var m1 = new Money(Currency.PLN);
+        m1.add(BigDecimal.TEN);
+        var m2 = new Money(Currency.PLN);
+        m2.add(BigDecimal.ONE);
+
+        assertEquals(-1, m1.compareAmount(m2));
+        assertEquals(0, m1.compareAmount(m1));
+        assertEquals(1, m2.compareAmount(m1));
+    }
+
 }
