@@ -28,4 +28,12 @@ public class MoneyTest {
         assertEquals(Currency.PLN, money.getCurrency());
     }
 
+    @Test
+    void difference_return_correct_value() {
+        var money = new Money(Currency.PLN);
+        money.add(BigDecimal.TEN);
+        money.diff(new BigDecimal("9"));
+        assertEquals(BigDecimal.ONE, money.getAmount());
+    }
+
 }

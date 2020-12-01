@@ -24,4 +24,7 @@ public class Money {
         return currency;
     }
 
+    public void diff(BigDecimal bigDecimal) {
+
+    }
 }
