@@ -13,4 +13,9 @@ public class Money {
     public void add(BigDecimal one) {
         bigDecimal = bigDecimal.add(one);
     }
+
+    public Currency getCurrency() {
+        return null;
+    }
+
 }

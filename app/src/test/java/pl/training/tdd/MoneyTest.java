@@ -21,4 +21,11 @@ public class MoneyTest {
         money.add(new BigDecimal("2"));
         assertEquals(new BigDecimal("3"), money.getAmount());
     }
+
+    @Test
+    void given_amount_should_return_currency() {
+        var money = new Money();
+        assertEquals(Currency.PLN, money.getCurrency());
+    }
+
 }
