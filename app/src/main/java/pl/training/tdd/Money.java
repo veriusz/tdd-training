@@ -36,6 +36,15 @@ public class Money {
     }
 
     public int compareAmount(Money m2) {
-        return 0;
+        if (amount.compareTo(m2.getAmount()) > 0) {
+            return -1;
+        }
+        if (amount.compareTo(m2.getAmount()) == 0) {
+            return 0;
+        }
+        if (amount.compareTo(m2.getAmount()) < 0) {
+            return 1;
+        }
+        return 100;
     }
 }
