@@ -10,13 +10,13 @@ public class MoneyTest {
 
     @Test
     void should_return_amount_zero() {
-        var money = new Money();
+        var money = new Money(null);
         assertEquals(BigDecimal.ZERO, money.getAmount());
     }
 
     @Test
     void given_one_two_when_add_should_return_three() {
-        var money = new Money();
+        var money = new Money(null);
         money.add(BigDecimal.ONE);
         money.add(new BigDecimal("2"));
         assertEquals(new BigDecimal("3"), money.getAmount());
@@ -24,7 +24,7 @@ public class MoneyTest {
 
     @Test
     void given_amount_should_return_currency() {
-        var money = new Money();
+        var money = new Money(Currency.PLN);
         assertEquals(Currency.PLN, money.getCurrency());
     }
 

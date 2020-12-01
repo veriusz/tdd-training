@@ -4,18 +4,24 @@ import java.math.BigDecimal;
 
 public class Money {
 
-    private BigDecimal bigDecimal = BigDecimal.ZERO;
+    private BigDecimal amount;
+    private Currency currency;
+
+    public Money(Currency currency) {
+        this.amount = BigDecimal.ZERO;
+        this.currency = currency;
+    }
 
     public BigDecimal getAmount() {
-        return bigDecimal;
+        return amount;
     }
 
     public void add(BigDecimal one) {
-        bigDecimal = bigDecimal.add(one);
+        amount = amount.add(one);
     }
 
     public Currency getCurrency() {
-        return null;
+        return currency;
     }
 
 }
