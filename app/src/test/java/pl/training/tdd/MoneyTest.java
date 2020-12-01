@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MoneyTest {
 
@@ -34,6 +35,13 @@ public class MoneyTest {
         money.add(BigDecimal.TEN);
         money.diff(new BigDecimal("9"));
         assertEquals(BigDecimal.ONE, money.getAmount());
+    }
+
+    @Test
+    void difference_when_subtract_throw_below_zero_exception() {
+        var money = new Money(Currency.PLN);
+        money.add(BigDecimal.ONE);
+        assertThrows(IllegalArgumentException.class, () -> money.diff(new BigDecimal("9")));
     }
 
 }
