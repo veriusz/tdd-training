@@ -4,11 +4,13 @@ import java.math.BigDecimal;
 
 public class Money {
 
+    private BigDecimal bigDecimal = BigDecimal.ZERO;
+
     public BigDecimal getAmount() {
-        return BigDecimal.ZERO;
+        return bigDecimal;
     }
 
     public void add(BigDecimal one) {
-        
+        bigDecimal = bigDecimal.add(one);
     }
 }
