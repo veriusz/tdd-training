@@ -1,6 +1,7 @@
 package pl.training.tdd;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Money {
 
@@ -24,7 +25,7 @@ public class Money {
         return currency;
     }
 
-    public void diff(BigDecimal bigDecimal) {
+    public void subtract(BigDecimal bigDecimal) {
         if (isSubtractGreaterThenZero(bigDecimal)) {
             throw new IllegalArgumentException();
         }
@@ -46,5 +47,19 @@ public class Money {
             return 1;
         }
         return 100;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Money money = (Money) o;
+        return Objects.equals(amount, money.amount) &&
+                currency == money.currency;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(amount, currency);
     }
 }
