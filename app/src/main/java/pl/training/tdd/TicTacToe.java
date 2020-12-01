@@ -7,7 +7,7 @@ public class TicTacToe {
     public TicTacToe() {
     }
 
-    public boolean begin() {
+    public boolean begin(String firstPalyer, String secondPalyer) {
         this.isBegin = true;
         return true;
     }
