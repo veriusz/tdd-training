@@ -25,6 +25,13 @@ public class Money {
     }
 
     public void diff(BigDecimal bigDecimal) {
+        if (isSubtractGreaterThenZero(bigDecimal)) {
+            throw new IllegalArgumentException();
+        }
         amount = amount.subtract(bigDecimal);
+    }
+
+    private boolean isSubtractGreaterThenZero(BigDecimal bigDecimal) {
+        return BigDecimal.ZERO.compareTo(amount.subtract(bigDecimal)) > 0;
     }
 }
