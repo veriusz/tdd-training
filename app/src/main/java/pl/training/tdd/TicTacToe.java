@@ -7,6 +7,7 @@ public class TicTacToe {
 
     private Boolean isBegin;
     private List<String> players;
+    int[][] board = new int[3][3];
 
     public TicTacToe() {
         players = new ArrayList<>();
