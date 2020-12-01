@@ -7,4 +7,8 @@ public class Money {
     public BigDecimal getAmount() {
         return BigDecimal.ZERO;
     }
+
+    public void add(BigDecimal one) {
+        
+    }
 }
